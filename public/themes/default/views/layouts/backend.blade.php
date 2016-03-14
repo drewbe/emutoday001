@@ -7,8 +7,9 @@
         <title>@yield('title') &mdash; EMU TODAY</title>
 
         <link rel="stylesheet" href="{{ theme('css/backend.css') }}">
-  
+
         <script src="{{ theme('js/all.js') }}"></script>
+        <script src="{{ theme('js/ckeditor/ckeditor.js') }}"></script>
 
       </head>
 <body>

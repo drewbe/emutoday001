@@ -2,10 +2,12 @@
   "private": true,
   "devDependencies": {
     "gulp": "^3.9.1",
+    "stylus": "^0.54.2",
     "vueify": "^8.3.6"
   },
   "dependencies": {
-    "laravel-elixir": "^4.0.0",
-    "bootstrap-sass": "^3.0.0"
+    "bootstrap-sass": "^3.0.0",
+    "ckeditor": "^4.5.7",
+    "laravel-elixir": "^4.0.0"
   }
 }

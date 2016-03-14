@@ -10106,7 +10106,7 @@ exports.insert = function (css) {
 }
 
 },{}],5:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("\n.Alert {\n  position: relative;\n  background: #ddd;\n  border: 1px solid #bbb;\n  padding: 1em;\n}\n\n.Alert--Success {\n  background: #ff0000;\n  border: 1px solid #0000ff;\n}\n\n.Alert--Error {\n  background: #00ff00;\n  border: 1px solid #000000;\n}\n.Alert__close {\n  position: absolute;\n  top: 1em;\n  right: 1em;\n  font-weight: bold;\n  cursor: pointer;\n}\n")
+var __vueify_style__ = require("vueify-insert-css").insert(".Alert {\n  position: relative;\n  background: #ddd;\n  border: 1px solid #bbb;\n  padding: 1em;\n}\n.Alert--Success {\n  background: #f00;\n  border: 1px solid #00f;\n}\n.Alert--Error {\n  background: #0f0;\n  border: 1px solid #000;\n}\n.Alert__close {\n  position: absolute;\n  top: 1em;\n  right: 1em;\n  font-weight: bold;\n  cursor: pointer;\n}\n")
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10136,14 +10136,14 @@ exports.default = {
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div :class=\"alertClasses\" v-show=\"show\">\n\n  <slot></slot>\n  <span class=\"Alert__close\" @click=\"show = false\">X</span>\n</div>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div :class=\"alertClasses\" v-show=\"show\">\n\n<slot></slot>\n<span class=\"Alert__close\" @click=\"show = false\">X</span>\n</div>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/home/vagrant/emutoday/public/themes/default/assets/js/components/Alert.vue"
+  var id = "/home/vagrant/emutoday/resources/assets/js/components/Alert.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["\n.Alert {\n  position: relative;\n  background: #ddd;\n  border: 1px solid #bbb;\n  padding: 1em;\n}\n\n.Alert--Success {\n  background: #ff0000;\n  border: 1px solid #0000ff;\n}\n\n.Alert--Error {\n  background: #00ff00;\n  border: 1px solid #000000;\n}\n.Alert__close {\n  position: absolute;\n  top: 1em;\n  right: 1em;\n  font-weight: bold;\n  cursor: pointer;\n}\n"] = false
+    require("vueify-insert-css").cache[".Alert {\n  position: relative;\n  background: #ddd;\n  border: 1px solid #bbb;\n  padding: 1em;\n}\n.Alert--Success {\n  background: #f00;\n  border: 1px solid #00f;\n}\n.Alert--Error {\n  background: #0f0;\n  border: 1px solid #000;\n}\n.Alert__close {\n  position: absolute;\n  top: 1em;\n  right: 1em;\n  font-weight: bold;\n  cursor: pointer;\n}\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {

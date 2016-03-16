@@ -27,7 +27,8 @@ class StoryImage_StoreRequest extends Request
             'image_name' => 'alpha_num | required | unique:story_images',
           'is_active' => 'boolean',
           'is_featured' => 'boolean',
-          'image' => 'required | mimes:jpeg,jpg,bmp,png | max:1000'
+          'image' => 'required | mimes:jpeg,jpg,bmp,png | max:1000',
+          'image_type' => 'required'
         ];
     }
 }

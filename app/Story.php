@@ -9,7 +9,7 @@ class Story extends Model
 {
     protected $table = 'storys';
 
-    protected $fillable = ['author_id', 'title', 'slug','subtitle', 'teaser', 'body','published_at'];
+    protected $fillable = ['author_id', 'title', 'slug','subtitle', 'teaser', 'content','published_at'];
 
     protected $dates = ['published_at'];
 

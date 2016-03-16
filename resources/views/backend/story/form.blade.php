@@ -1,7 +1,10 @@
+@inject('storytypes', 'emutoday\Http\Utilities\StoryTypes')
 @extends('layouts.backend')
 
 @section('title', $story->exists ? 'Editing '.$story->title : 'Create New Story')
-
+    @section('headscripts')
+        <script src="{{ theme('js/ckeditor/ckeditor.js') }}"></script>
+    @stop
 @section('content')
     {!! Form::model($story, [
         'method' => $story->exists ? 'put' : 'post',
@@ -36,46 +39,16 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('body') !!}
-        {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+        {!! Form::label('content') !!}
+        {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
     </div>
-    <div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Story Image ID</th>
-                    <th>Story Image Thumbnail</th>
-                    <th>Story Image Name</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-            {{ $storyImages = $story->storyImages }}
-            @foreach($storyImages as $storyImage)
-                <tr>
-                <td>
-                    <a href="{{ route('backend.storyimages.show', $storyImage->id) }}">{{ $storyImage->id }}</a>
-                </td>
-                <td>
-                    <img src="{{ $storyImage->image_path . 'thumbnails/' . 'thumb-' . $storyImage->image_name . '.' .
-                $storyImage->image_extension . '?'. 'time='. time() }}">
-                </td>
-                <td>{{ $storyImage->image_name }}</td>
-                <td>
-                    <a href="{{ route('backend.storyimages.edit', $storyImage->id) }}">
-                        <span class="glyphicon glyphicon-edit"></span>
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ route('backend.storyimages.confirm', $storyImage->id) }}">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </a>
-                </td>
-            </tr>
+    <div class="form-group">
+    <label for="story_type">Story type:</label>
+        <select id="story_type" name="story_type" class="form-control">
+            @foreach($storytypes::all() as $storytype => $code)
+                <option value="{{ $code }}">{{ $storytype }}</option>
             @endforeach
-            </tbody>
-        </table>
+        </select>
     </div>
 
 
@@ -106,9 +79,9 @@
                    height : 50,
                    toolbar : 'simple'
                 })
-                CKEDITOR.replace('body');
+                CKEDITOR.replace('content');
 
-        
+
 
         $('input[name=published_at]').datetimepicker({
             allowInputToggle: true,

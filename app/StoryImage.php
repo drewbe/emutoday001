@@ -15,7 +15,8 @@ class StoryImage extends Model
                             'caption',
                             'teaser',
                             'moretext',
-                            'image_extension'
+                            'image_extension',
+                            'image_type'
     ];
     /**
         * All of the relationships to be touched.

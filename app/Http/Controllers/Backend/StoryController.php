@@ -41,17 +41,17 @@ class StoryController extends Controller
     public function store(Requests\StoreStoryRequest $request)
     {
         $this->storys->create(
-        ['author_id' => auth()->user()->id] + $request->only('title', 'slug', 'subtitle', 'published_at', 'teaser','body')
+        ['author_id' => auth()->user()->id] + $request->only('title', 'slug', 'subtitle', 'published_at', 'teaser','content', 'story_type')
         );
 
-        return redirect(route('backend.story.index'))->with('status', 'Story has been created.');
+        return redirect(route('backend.story.edit'))->with('status', 'Story has been created.');
     }
 
     public function edit($id)
     {
         $story = $this->storys->findOrFail($id);
 
-        return view('backend.story.form', compact('story'));
+        return view('backend.story.edit', compact('story'));
 
     }
     public function update(Requests\UpdateStoryRequest $request, $id)

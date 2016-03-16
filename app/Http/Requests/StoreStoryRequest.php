@@ -29,7 +29,8 @@ class StoreStoryRequest extends Request
                 'subtitle' => ['required'],
                 'teaser' => ['required'],
                 'published_at' => ['date_format:Y-m-d H:i:s'],
-                'body' => ['required']
+                'content' => ['required'],
+                'story_type' => ['required']
         ];
     }
 }

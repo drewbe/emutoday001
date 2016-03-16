@@ -10106,7 +10106,7 @@ exports.insert = function (css) {
 }
 
 },{}],5:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert(".Alert {\n  position: relative;\n  background: #ddd;\n  border: 1px solid #bbb;\n  padding: 1em;\n}\n.Alert--Success {\n  background: #f00;\n  border: 1px solid #00f;\n}\n.Alert--Error {\n  background: #0f0;\n  border: 1px solid #000;\n}\n.Alert__close {\n  position: absolute;\n  top: 1em;\n  right: 1em;\n  font-weight: bold;\n  cursor: pointer;\n}\n")
+var __vueify_style__ = require("vueify-insert-css").insert("\n\n")
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10114,36 +10114,27 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
 
-  props: ['type'],
+  props: ['list'],
 
-  data: function data() {
-    return {
-      show: true
-    };
+  created: function created() {
+    this.list = JSON.parse(this.list);
   },
 
-
   computed: {
-    alertClasses: function alertClasses() {
-      var type = this.type;
-
-      return {
-        'Alert': true,
-        'Alert--Success': type == 'success',
-        'Alert--Error': type == 'error'
-      };
+    src: function src() {
+      return 'imgs/story/thumbnails/thumb-' + this.list.item.filename;
     }
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div :class=\"alertClasses\" v-show=\"show\">\n\n<slot></slot>\n<span class=\"Alert__close\" @click=\"show = false\">X</span>\n</div>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"list-group\">\n\n  <a href=\"#\" class=\"list-group-item\" v-for=\"item in list\">\n    <h4 class=\"list-group-item-heading\">\n      {{ item.image_type }}\n    </h4>\n\n    <h5>\n        <img src=\"'imgs/story/thumbnails/thumb-'{{item.filename}}\">\n    </h5>\n\n    <p class=\"list-group-item-text\" v-if=\"item.caption\">{{ item.caption }}</p>\n\n    <button class=\"btn btn-xs btn-danger\">Delete</button>\n  </a>\n\n</div>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/home/vagrant/emutoday/resources/assets/js/components/Alert.vue"
+  var id = "/home/vagrant/emutoday/resources/assets/js/components/Drew.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache[".Alert {\n  position: relative;\n  background: #ddd;\n  border: 1px solid #bbb;\n  padding: 1em;\n}\n.Alert--Success {\n  background: #f00;\n  border: 1px solid #00f;\n}\n.Alert--Error {\n  background: #0f0;\n  border: 1px solid #000;\n}\n.Alert__close {\n  position: absolute;\n  top: 1em;\n  right: 1em;\n  font-weight: bold;\n  cursor: pointer;\n}\n"] = false
+    require("vueify-insert-css").cache["\n\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -10155,9 +10146,9 @@ if (module.hot) {(function () {  module.hot.accept()
 },{"vue":3,"vue-hot-reload-api":2,"vueify-insert-css":4}],6:[function(require,module,exports){
 'use strict';
 
-var _Alert = require('./components/Alert.vue');
+var _Drew = require('./components/Drew.vue');
 
-var _Alert2 = _interopRequireDefault(_Alert);
+var _Drew2 = _interopRequireDefault(_Drew);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10167,13 +10158,13 @@ var Vue = require('vue');
 new Vue({
   el: '#app',
 
-  components: { Alert: _Alert2.default },
+  components: { Drew: _Drew2.default },
 
   ready: function ready() {
-    alert('Ready to GO!');
+    alert('Main Vue Ready!');
   }
 });
 
-},{"./components/Alert.vue":5,"vue":3}]},{},[6]);
+},{"./components/Drew.vue":5,"vue":3}]},{},[6]);
 
 //# sourceMappingURL=main.js.map

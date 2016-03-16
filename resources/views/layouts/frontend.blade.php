@@ -22,20 +22,9 @@
         </nav>
 
         <div class="container">
-          <div id="app">
-            <alert type="error">
-              <strong>Error</strong> Tour Account is error
-            </alert>
-            <alert type="success">
-              <strong>Success</strong> Tour Account is updated
-            </alert>
-
-          </div>
             <div class="row">
                 <div class="col-md-12">@yield('content')</div>
             </div>
         </div>
-
-        <script src="{{ theme('js/main.js') }}"></script>
     </body>
 </html>

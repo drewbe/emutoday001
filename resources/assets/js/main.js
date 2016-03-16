@@ -1,15 +1,15 @@
 //browserify entrypoiny
 var Vue = require('vue');
 
-import Alert from './components/Alert.vue';
+import Drew from './components/Drew.vue';
 
 
 new Vue({
   el: '#app',
 
-  components: { Alert },
+  components: { Drew },
 
   ready() {
-      alert('Ready to GO!');
+      alert('Main Vue Ready!');
   }
 });

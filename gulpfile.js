@@ -33,18 +33,19 @@ elixir(function(mix) {
 
     mix.copy('node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js', elixir.config.assetsPath+'/js/datepicker.js');
     mix.copy('node_modules/eonasdan-bootstrap-datetimepicker/src/sass/_bootstrap-datetimepicker.scss', elixir.config.assetsPath+'/sass/datepicker.scss');
-
+/*
     mix.copy('node_modules/simplemde/dist/simplemde.min.css', elixir.config.publicPath+'/css/simplemde.css');
     mix.copy('node_modules/simplemde/dist/simplemde.min.js', elixir.config.assetsPath+'/js/simplemde.js');
-
+*/
     mix.copy('node_modules/ckeditor', elixir.config.publicPath+'/js/ckeditor');
     mix.scripts([
-        'jquery.js', 'bootstrap.js', 'moment.js',
-        'simplemde.js','datepicker.js'
+        'jquery.js', 'bootstrap.js', 'moment.js','datepicker.js'
     ]);
+
 
     mix.sass('backend.scss');
     mix.sass('frontend.scss');
 
     mix.browserify('main.js');
+
 });

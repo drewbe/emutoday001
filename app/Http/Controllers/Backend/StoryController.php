@@ -3,6 +3,7 @@
 namespace emutoday\Http\Controllers\backend;
 
 use emutoday\Story;
+use emutoday\StoryImage;
 
 use Illuminate\Http\Request;
 use emutoday\Http\Requests;
@@ -40,11 +41,22 @@ class StoryController extends Controller
 
     public function store(Requests\StoreStoryRequest $request)
     {
-        $this->storys->create(
+        $story = $this->storys->create(
         ['author_id' => auth()->user()->id] + $request->only('title', 'slug', 'subtitle', 'published_at', 'teaser','content', 'story_type')
         );
 
-        return redirect(route('backend.story.edit'))->with('status', 'Story has been created.');
+        if ($story->story_type != 'storybasic'){
+            $storyImage = $story->storyImages()->create([
+                'image_name'=> sha1(time() . 'imgsmall'),
+                'image_type'=> 'imagesmall',
+            ]);
+            $storyImage = $story->storyImages()->create([
+                'image_name'=> sha1(time() . 'imgmain'),
+                'image_type'=> 'imagemain',
+            ]);
+        }
+        return redirect(route('backend.story.edit', $story->id))->with('status', 'Story has been created.');
+
     }
 
     public function edit($id)
@@ -57,7 +69,7 @@ class StoryController extends Controller
     public function update(Requests\UpdateStoryRequest $request, $id)
     {
         $story = $this->storys->findOrFail($id);
-        $story->fill($request->only('title', 'slug', 'subtitle', 'published_at', 'teaser','body'))->save();
+        $story->fill($request->only('title', 'slug', 'subtitle', 'published_at', 'teaser','content','story_type'))->save();
 
         return redirect(route('backend.story.edit', $story->id))->with('status', 'Story has been updated.');
     }

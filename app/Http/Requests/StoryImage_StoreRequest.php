@@ -24,10 +24,7 @@ class StoryImage_StoreRequest extends Request
     public function rules()
     {
         return [
-            'image_name' => 'alpha_num | required | unique:story_images',
-          'is_active' => 'boolean',
-          'is_featured' => 'boolean',
-          'image' => 'required | mimes:jpeg,jpg,bmp,png | max:1000',
+        'image_name' => 'alpha_num',
           'image_type' => 'required'
         ];
     }

@@ -10127,12 +10127,12 @@ exports.default = {
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"list-group\">\n\n  <a href=\"#\" class=\"list-group-item\" v-for=\"item in list\">\n    <h4 class=\"list-group-item-heading\">\n      {{ item.image_type }}\n    </h4>\n\n    <h5>\n        <img src=\"'imgs/story/thumbnails/thumb-'{{item.filename}}\">\n    </h5>\n\n    <p class=\"list-group-item-text\" v-if=\"item.caption\">{{ item.caption }}</p>\n\n    <button class=\"btn btn-xs btn-danger\">Delete</button>\n  </a>\n\n</div>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"list-group\">\n\n  <a href=\"#\" class=\"list-group-item\" v-for=\"item in list\">\n    <h4 class=\"list-group-item-heading\">\n      {{ item.image_type }}\n    </h4>\n\n    <h5>\n        <img :src=\"'http://emutoday.app'+item.image_path+'thumbnails/thumb-'+item.filename\">\n    </h5>\n\n    <p class=\"list-group-item-text\" v-if=\"item.caption\">{{ item.caption }}</p>\n\n    <button class=\"btn btn-xs btn-danger\">Delete</button>\n  </a>\n\n</div>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/home/vagrant/emutoday/resources/assets/js/components/Drew.vue"
+  var id = "/Users/ext_dbeaman/SITES/Code/emu/emutoday/resources/assets/js/components/Drew.vue"
   module.hot.dispose(function () {
     require("vueify-insert-css").cache["\n\n"] = false
     document.head.removeChild(__vueify_style__)

@@ -1,7 +1,7 @@
-@inject('storyimagetypes', 'emutoday\Http\Utilities\StoryImageTypes')
+
 
 {!! Form::model($storyImage,[
-   'method' => $storyImage->exists ? 'put' : 'post',
+   'method' => 'put',
    'route' => $storyImage->exists ? ['backend.storyimages.update', $storyImage->id] : ['backend.storyimages.store'],
    'files' => true
 ]) !!}
@@ -55,8 +55,7 @@
 <!-- form field for moretext -->
 <div class="form-group">
  {!! Form::label('image_type', 'Image Type') !!}
- {!! Form::select('image_type', $storyimagetypes::all(), 0) !!}
-
+ {!! Form::select('image_type', $storyImage->image_type, ['class' => 'form-control', 'disabled' => 'disabled']) !!}
 </div>
 
 <div class="form-group">

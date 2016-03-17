@@ -34,11 +34,25 @@ class StoryImageController extends Controller
         return view('backend.storyimages.form', compact('storyImage'));
     }
 
+    public function store(Requests\StoreUserRequest $request)
+    {
+        $this->storyImages->create($request->only('image_type'));
+        //return redirect(route('backend.users.index'))->with('status', 'User has been created.');
+    }
 
-    public function store(Requests\StoryImage_StoreRequest $request)
+
+    public function update(Requests\StoryImage_StoreRequest $request,$id)
     {
        //create new instance of model to save from form
+       $storyImage = $this->storyImages->findOrFail($id);
+       $storyImage->is_active = $request->get('is_active');
+       $storyImage->is_featured = $request->get('is_featured');
+       $this->formatCheckboxValue($storyImage);
+       $storyImage->caption = $request->get('caption');
+       $storyImage->teaser = $request->get('teaser');
+       $storyImage->moretext = $request->get('moretext');
 
+/*
        $storyImage = new StoryImage([
            'image_name'        => $request->get('image_name'),
            'image_extension'   => $request->file('image')->getClientOriginalExtension(),
@@ -49,7 +63,7 @@ class StoryImageController extends Controller
            'moretext'          => $request->get('moretext')
 
        ]);
-
+*/
        //define the image paths
 
        $destinationFolder = '/imgs/story/';
@@ -66,6 +80,7 @@ class StoryImageController extends Controller
 
 
        //parts of the image we will need
+       if ( ! empty(Input::file('image'))){
 
        $imgFile = Input::file('image');
        $imgFilePath = $imgFile->getRealPath();
@@ -92,7 +107,8 @@ class StoryImageController extends Controller
         ->fit(100)
         ->save(public_path() . $destinationFolder . 'thumbnails/' . 'thumb-' . $imgFileName);
 
-
+    }
+     $storyImage->is_active = 1;
         $storyImage->save();
 
        /*
@@ -117,7 +133,8 @@ class StoryImageController extends Controller
            // Process the uploaded image, add $model->attribute and folder name
 */
       // flash()->success('Story Image Created!');
-      return redirect(route('backend.storyimages.index'))->with('status', 'Story Image has been created.');
+      $story = $storyImage->story;
+      return redirect(route('backend.story.edit', $story->id ))->with('status', 'Story Image has been created.');
       // return redirect()->route('backend/storyimages.show', [$storyImage]);
     }
 
@@ -127,7 +144,7 @@ class StoryImageController extends Controller
         return view('backend.storyimages.edit', compact('storyImage'));
     }
 
-    public function update(Requests\StoryImage_UpdateRequest $request, $id)
+    public function zupdate(Requests\StoryImage_UpdateRequest $request, $id)
     {
         $storyImage = $this->storyImages->findOrFail($id);
         $storyImage->is_active = $request->get('is_active');

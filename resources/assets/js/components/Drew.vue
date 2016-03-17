@@ -7,7 +7,7 @@
     </h4>
 
     <h5>
-        <img src="'imgs/story/thumbnails/thumb-'{{item.filename}}">
+        <img :src="'http://emutoday.app'+item.image_path+'thumbnails/thumb-'+item.filename">
     </h5>
 
     <p class="list-group-item-text" v-if="item.caption">{{ item.caption }}</p>

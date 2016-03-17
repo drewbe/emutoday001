@@ -24,15 +24,6 @@
         {!! Form::label('subtitle') !!}
         {!! Form::text('subtitle', null, ['class' => 'form-control']) !!}
     </div>
-    <div class="form-group row">
-        <div class="col-md-12">
-            {!! Form::label('published_at') !!}
-        </div>
-        <div class="col-md-4">
-            {!! Form::text('published_at', null, ['class' => 'form-control']) !!}
-        </div>
-    </div>
-
     <div class="form-group teaser">
         {!! Form::label('teaser') !!}
         {!! Form::textarea('teaser', null, ['class' => 'form-control']) !!}
@@ -41,6 +32,14 @@
     <div class="form-group">
         {!! Form::label('content') !!}
         {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            {!! Form::label('published_at') !!}
+        </div>
+        <div class="col-md-4">
+            {!! Form::text('published_at', null, ['class' => 'form-control']) !!}
+        </div>
     </div>
     <div class="form-group">
     <label for="story_type">Story type:</label>

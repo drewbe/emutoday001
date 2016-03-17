@@ -1,3 +1,4 @@
+@inject('storytypes', 'emutoday\Http\Utilities\StoryTypes')
 @extends('layouts.backend')
 
 @section('title', 'Editing '.$story->title)
@@ -43,6 +44,10 @@
                 {!! Form::label('content') !!}
                 {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
             </div>
+            <div class="form-group">
+                {!! Form::label('story_type','Story Type') !!}
+                {!! Form::text('story_type', $story->story_type, ['class' => 'form-control', 'disabled' => 'disabled']) !!}
+            </div>
             {!! Form::submit($story->exists ? 'Save Story' : 'Create New Story', ['class' => 'btn btn-primary']) !!}
 
             {!! Form::close() !!}
@@ -50,16 +55,12 @@
 
 
         <div class="col-md-6">
-            <div id="app">
-                <drew list="{{ $story->storyImages }}"></drew>
-            </div>
-<!--     add image asset -->
 
-
+            <!--     add image asset -->
+            @each('backend.story.subviews.storyimage', $story->storyImages, 'storyImage')
             <!-- list all image assets -->
 
-            @each('backend.story.subviews.miniform',$story->storyImages,'storyImage')
-        
+
             </div>
     </div>
 

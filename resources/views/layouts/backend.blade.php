@@ -10,29 +10,29 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-static-top navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="/" class="navbar-brand">EMU TODAY</a>
-        </div>
-        <ul class="nav navbar-nav">
-           <li><a href="{{ route('backend.dashboard') }}">Dashboard</a></li>
-           <li><a href="{{ route('backend.users.index') }}">Users</a></li>
+  <div class="top-bar" id="dash-menu">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">EMU TODAY</li>
+          <li><a href="{{ route('backend.dashboard') }}">Dashboard</a></li>
+          <li><a href="{{ route('backend.users.index') }}">Users</a></li>
           <li><a href="{{ route('backend.story.index') }}">Story Posts</a></li>
           <li><a href="{{ route('backend.storyimages.index') }}">Story Images</a></li>
-       </ul>
-       <ul class="nav navbar-nav navbar-right">
-         <li><span class="navbar-text">Hello, {{ $admin->name }}</span></li>
-         <li><a href="{{ route('auth.logout') }}">Logout</a></li>
-       </ul>
-     </div>
-    </nav>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><span class="navbar-text">Hello, {{ $admin->name }}</span></li>
+          <li><a href="{{ route('auth.logout') }}">Logout</a></li>
+        </ul>
+      </div>
+    </div>
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
+
           <h3>@yield('title')</h3>
             @if($errors->any())
-              <div class="alert alert-danger">
+              <div class="callout alert">
                 <strong>We found some errors!</strong>
                 <ul>
                   @foreach($errors->all() as $error)
@@ -42,15 +42,16 @@
               </div>
             @endif
             @if($status)
-              <div class="alert alert-info">
+              <div class="callout primary">
                 {{ $status }}
               </div>
             @endif
-          </div>
-        </div>
+
+
 
               @yield('content')
 
+            </div>
       </div>
             @include('layouts.footscripts')
   </body>

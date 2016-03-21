@@ -15,36 +15,66 @@ require('laravel-elixir-vueify');
  elixir.config.publicPath = elixir.config.assetsPath;
  */
 
- elixir.config.publicPath = 'public/themes/default/assets';
+elixir.config.publicPath = 'public/themes/default/assets';
 
-
+elixir.config.js.browserify.watchify.options.poll = true;
+/*
 elixir.config.css.sass.pluginOptions.includePaths = [
-  'node_modules/bootstrap-sass/assets/stylesheets',
+  'node_modules/foundation-sites/scss',
   'node_modules/font-awesome/scss'
 ];
+*/
 
+elixir.config.css.sass.pluginOptions.includePaths = [
+  'node_modules/foundation-sites/scss',
+  'node_modules/font-awesome/scss'
+];
 elixir(function(mix) {
-    mix.copy('node_modules/bootstrap-sass/assets/fonts', elixir.config.publicPath+'/fonts');
-    mix.copy('node_modules/font-awesome/fonts', elixir.config.publicPath+'/fonts');
 
-    mix.copy('node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js', elixir.config.assetsPath+'/js/bootstrap.js');
+    //mix.copy('node_modules/bootstrap-sass/assets/fonts', elixir.config.publicPath+'/fonts');
+    mix.copy(elixir.config.assetsPath + '/foundation-icons', elixir.config.publicPath+'/fonts/foundation-icons');
+    mix.copy('node_modules/font-awesome/fonts', elixir.config.publicPath+'/fonts');
+  //  mix.copy(elixir.config.assetsPath + '/foundation-icons', elixir.config.publicPath+'/fonts/foundation-icons');
+  //  mix.copy('node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js', elixir.config.assetsPath+'/js/bootstrap.js');
+
+
     mix.copy('node_modules/jquery/dist/jquery.min.js', elixir.config.assetsPath+'/js/jquery.js');
+
+
+    //mix.copy('node_modules/foundation-sites/scss/settings/_settings.scss', elixir.config.assetsPath+'/sass/settings.scss');
+
+    mix.copy('node_modules/foundation-sites/dist/foundation.js', elixir.config.assetsPath+'/js/foundation.js');
+
+
+
+
     mix.copy('node_modules/moment/min/moment.min.js', elixir.config.assetsPath+'/js/moment.js');
 
+
+/*
     mix.copy('node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js', elixir.config.assetsPath+'/js/datepicker.js');
     mix.copy('node_modules/eonasdan-bootstrap-datetimepicker/src/sass/_bootstrap-datetimepicker.scss', elixir.config.assetsPath+'/sass/datepicker.scss');
-/*
+
     mix.copy('node_modules/simplemde/dist/simplemde.min.css', elixir.config.publicPath+'/css/simplemde.css');
     mix.copy('node_modules/simplemde/dist/simplemde.min.js', elixir.config.assetsPath+'/js/simplemde.js');
 */
     mix.copy('node_modules/ckeditor', elixir.config.publicPath+'/js/ckeditor');
+
+
+    var foundationJSFolder = 'foundation-sites/js/';
+
+
+  mix.sass('foundation_backend.scss');
+
     mix.scripts([
-        'jquery.js', 'bootstrap.js', 'moment.js','datepicker.js'
+        'jquery.js',
+        'foundation.js',
+        'moment.js'
     ]);
 
+  //  mix.sass('app.scss');
 
-    mix.sass('backend.scss');
-    mix.sass('frontend.scss');
+
 
     mix.browserify('main.js');
 

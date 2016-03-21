@@ -36,7 +36,7 @@ class StoryController extends Controller
     */
     public function create(Story $story)
     {
-        return view('backend.story.form', compact('story'));
+        return view('backend.story.create', compact('story'));
     }
 
     public function store(Requests\StoreStoryRequest $request)
@@ -47,11 +47,11 @@ class StoryController extends Controller
 
         if ($story->story_type != 'storybasic'){
             $storyImage = $story->storyImages()->create([
-                'image_name'=> sha1(time() . 'imgsmall'),
+                'image_name'=> 'img' . $story->id . '_small',
                 'image_type'=> 'imagesmall',
             ]);
             $storyImage = $story->storyImages()->create([
-                'image_name'=> sha1(time() . 'imgmain'),
+                'image_name'=> 'img' . $story->id . '_main',
                 'image_type'=> 'imagemain',
             ]);
         }

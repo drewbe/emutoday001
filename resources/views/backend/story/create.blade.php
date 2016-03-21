@@ -33,11 +33,11 @@
         {!! Form::label('content') !!}
         {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
     </div>
-    <div class="input-group row">
-        <div class="col-md-12">
+    <div class="input-group">
+        <div class="small-2 columns">
             {!! Form::label('published_at') !!}
         </div>
-        <div class="col-md-4">
+        <div class="small-10 columns">
             {!! Form::text('published_at', null, ['class' => 'form-control']) !!}
         </div>
     </div>
@@ -79,8 +79,6 @@
                    toolbar : 'simple'
                 })
                 CKEDITOR.replace('content');
-
-
 
 
         $('input[name=title]').on('blur', function () {

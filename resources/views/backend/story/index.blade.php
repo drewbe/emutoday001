@@ -3,9 +3,9 @@
 @section('title', 'Story')
 
 @section('content')
-    <a href="{{ route('backend.story.create') }}" class="btn btn-primary">Create New Story</a>
+    <a href="{{ route('backend.story.create') }}" class="button">Create New Story</a>
 
-    <table class="table table-hover">
+    <table class="hover">
         <thead>
             <tr>
                 <th>Title</th>
@@ -27,12 +27,12 @@
                     <td>{{ $story->published_date }}</td>
                     <td>
                         <a href="{{ route('backend.story.edit', $story->id) }}">
-                            <span class="glyphicon glyphicon-edit"></span>
+                            <i class="fi-pencil"></i>
                         </a>
                     </td>
                     <td>
                         <a href="{{ route('backend.story.confirm', $story->id) }}">
-                            <span class="glyphicon glyphicon-remove"></span>
+                            <i class="fi-trash"></i>
                         </a>
                     </td>
                 </tr>

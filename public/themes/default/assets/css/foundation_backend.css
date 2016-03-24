@@ -5601,12 +5601,4 @@ body {
   height: 150px;
   min-height: 150px; }
 
-@media screen and (max-width: 39.9375em) {
-  .no-js .top-bar {
-    display: none; } }
-
-@media screen and (min-width: 40em) {
-  .no-js .title-bar {
-    display: none; } }
-
 /*# sourceMappingURL=foundation_backend.css.map */

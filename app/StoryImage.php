@@ -19,14 +19,34 @@ class StoryImage extends Model
                             'image_type'
     ];
     /**
-        * All of the relationships to be touched.
-        *
-        * @var array
-        */
-       protected $touches = ['story'];
+    * All of the relationships to be touched.
+    *
+    * @var array
+    */
+    protected $touches = ['story'];
 
     public function story()
     {
         return $this->belongsTo(Story::class);
     }
+
+    /**
+ * The base directory and name convention for thumbnails
+ *
+ * @return string
+ */
+public function thumbDirAndPrefix()
+{
+    return 'thumbnails/thumb-';
+}
+
+    public function getThumbnailImagePath()
+    {
+        return $this->image_path . $this->thumbDirAndPrefix().$this->filename;
+    }
+    public function getMainImagePath()
+	{
+        return $this->image_path . $this->filename;
+	}
+
 }

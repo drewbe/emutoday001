@@ -15,8 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app['view']->composer(['layouts.auth', 'layouts.backend', 'layouts.master'], Composers\AddStatusMessage::class);
-        $this->app['view']->composer(['layouts.backend', 'layouts.master'], Composers\AddAdminUser::class);
+        $this->app['view']->composer(['layouts.auth', 'layouts.backend', 'admin.layouts.master'], Composers\AddStatusMessage::class);
+        $this->app['view']->composer(['layouts.backend', 'admin.layouts.master'], Composers\AddAdminUser::class);
         $this->app['view']->composer('layouts.frontend', Composers\InjectPages::class);
 
         $this->app['view']->setFinder($this->app['theme.finder']);

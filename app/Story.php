@@ -7,8 +7,18 @@ use emutoday\StoryImage;
 
 class Story extends Model
 {
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
     protected $table = 'storys';
 
+    /**
+         * The attributes that are mass assignable.
+         *
+         * @var array
+         */
     protected $fillable = ['author_id', 'title', 'slug','subtitle', 'teaser', 'content','published_at','story_type'];
 
     protected $dates = ['published_at'];
@@ -26,4 +36,10 @@ class Story extends Model
     {
         return $this->hasMany(StoryImage::class);
     }
+
+    public function getStoryImageByType($value)
+    {
+        return $storyImage = $this->storyImages()->where('image_type', $value)->first();
+    }
+
 }

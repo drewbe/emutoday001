@@ -157,6 +157,8 @@ return [
         emutoday\Providers\EventServiceProvider::class,
         emutoday\Providers\RouteServiceProvider::class,
 
+        Laracasts\Flash\FlashServiceProvider::class,
+
         Baum\Providers\BaumServiceProvider::class,
         Lewis\Presenter\PresenterServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
@@ -210,6 +212,9 @@ return [
 
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
+
+        'Flash'      => Laracasts\Flash\Flash::class,
+
         'Image'     => Intervention\Image\Facades\Image::class
 
 

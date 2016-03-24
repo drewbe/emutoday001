@@ -5,53 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')  &mdash; EMU</title>
-    @include('layouts.style')
-    @include('layouts.headscript')
+    @yield('head')
+
   </head>
-
   <body>
-    <nav class="navbar navbar-static-top navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="/" class="navbar-brand">EMU TODAY</a>
-        </div>
-        <ul class="nav navbar-nav">
-           <li><a href="{{ route('backend.dashboard') }}">Dashboard</a></li>
-           <li><a href="{{ route('backend.users.index') }}">Users</a></li>
-          <li><a href="{{ route('backend.story.index') }}">Story Posts</a></li>
-          <li><a href="{{ route('backend.storyimages.index') }}">Story Images</a></li>
-       </ul>
-       <ul class="nav navbar-nav navbar-right">
-         <li><span class="navbar-text">Hello, {{ $admin->name }}</span></li>
-         <li><a href="{{ route('auth.logout') }}">Logout</a></li>
-       </ul>
-     </div>
-    </nav>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h3>@yield('title')</h3>
-            @if($errors->any())
-              <div class="alert alert-danger">
-                <strong>We found some errors!</strong>
-                <ul>
-                  @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                  @endforeach
-                </ul>
-              </div>
-            @endif
-            @if($status)
-              <div class="alert alert-info">
-                {{ $status }}
-              </div>
-            @endif
-          </div>
-        </div>
+    <div class="off-canvas-wrapper">
+      <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+          <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+            <ul class="off-canvas-list"><!-- include($_SERVER['DOCUMENT_ROOT'].'/emu-today/admin/php/top_nav.php'); -->
+            <li><a href="#">Today</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Announcements</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Student Profiles</a></li>
+            <li><a href="#">Athletics</a></li>
+            </ul>
+            <ul class="off-canvas-list alt"><!-- include($_SERVER['DOCUMENT_ROOT'].'/emu-today/admin/php/secondary_nav.php'); -->
+            <li><a href="#">Media Highlights</a></li>
+            <li><a href="#">Eastern Magazine</a></li>
+            <li><a href="#">Submit an Event</a></li>
+            <li><a href="#">Submit an Announcement</a></li>
+            </ul>
+          </div> <!-- END off-canvas position-right -->
+        <div class="off-canvas-content" data-off-canvas-content>
+          <div id="connection-bar" data-equalizer>
+            <div id="all-connections" data-equalizer-watch>
+            @yield('topbar')
 
-              @yield('content')
+          </div> <!-- all-connections -->
+        </div> <!-- connection-bar -->
 
-      </div>
-        @include('layouts.footscript')
+   <section class="main-section">
+         @yield('content')
+  </section>
+
+
+  <a class="exit-off-canvas"></a>
+      <!-- php $wrapper->base(); -->
+      @yield('bottombar')
+
+
+    </div><!-- off-canvas-content -->
+    </div><!-- off-canvas-wrapper-inner -->
+ </div> <!-- off-canvas-content -->
+ @yield('footer')
+
+
   </body>
 </html>

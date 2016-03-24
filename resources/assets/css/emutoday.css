@@ -1,0 +1,267 @@
+@charset "UTF-8";
+body {
+	font-size: 14px;
+}
+/*_Main holder_*/
+#emutoday {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 940px;
+	border-style: none;
+}
+/*_Zeroing_*/
+p, div, ol, ul, li, img, h1, h2, h3, h4, h5, h6, blockquote  {
+	margin: 0px;
+	padding: 0px;
+	border-style: none;
+}
+a {
+	border-style: none;
+	outline: none;
+}
+
+/*_General_*/
+h1 {
+	font-size: 1.3em;
+	padding-bottom: 0.2em;
+	color: #037551;
+}
+h2 {
+	font-size: 1.25em;
+	padding-bottom: 0.2em;
+	padding-top: 0.45em;
+	line-height: 120%;
+}
+h3 {
+	font-size: 1.2em;
+	padding-bottom: 0.10em;
+	padding-top: 0.45em;
+	line-height: 120%;
+}
+h4 {
+	font-size: 1.1em;
+	padding-bottom: 0.10em;
+	padding-top: 0.45em;
+	line-height: 120%;
+}
+h5 {
+	font-size: 1em;
+	padding-bottom: 0.10em;
+	padding-top: 0.45em;
+	line-height: 120%;
+}
+h6 {
+	font-size: 1em;
+	padding-bottom: 0.10em;
+	padding-top: 0.45em;
+	color: #146442;
+	line-height: 120%;
+}
+.greenbold{
+	font-weight: bold;
+	color: #037551;
+}
+/*_Image holder_*/
+#emutoday #imagecontainer {
+	font: 12px "Lucida Grande", Arial, Helvetica, sans-serif;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	width: 940px;
+	border-bottom: 1px solid #FFFFFF;
+	float: left;
+	height: 75px;
+	}
+	
+#emutoday #lowercontent {
+	background: url(../images/emu_today_images/background.png) repeat-y;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 940px;
+	border-top: 1px solid #999999;
+	font: 12px "Lucida Grande", Arial, Helvetica, sans-serif;
+	color: #333333;
+}
+#lowercontent #maincontent a {
+	color: #037551;
+	text-decoration: none;
+}
+#lowercontent #maincontent a:hover {
+	text-decoration: underline;	
+}
+/*_Navigation column_*/
+#emutoday #lowercontent #navigationcolumn {
+	font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 195px;
+	overflow: hidden;
+	display: block;
+}
+/*_Navigation list_*/
+#navigationcolumn ul {
+	margin: 0px;
+	padding: 0px;
+	width: 195px;
+	float: left;
+}
+#navigationcolumn li {
+	font: bold 12px "Lucida Grande", Arial, Helvetica, sans-serif;
+	list-style: none;
+}
+#navigationcolumn li a{
+	font: bold 12px "Lucida Grande", Arial, Helvetica, sans-serif;
+	float: left;
+	width: 169px;
+	list-style: none;
+	border-bottom: 1px solid #b9bcbb;
+	display: block;
+	text-decoration: none;
+	color: #333333;
+	padding: 10px 10px 8px 20px;
+}
+#navigationcolumn li a:hover{
+	color: #166440;
+	background: #C7D7D5 url(../images/emu_today_images/overedge.png) no-repeat left top;
+}
+
+#navigationcolumn .textinnavigation {
+	padding: 15px 20px;
+	margin: 0px 0px 3px;
+	width: 159px;
+	border-bottom: 1px solid #CCCCCC;
+	float: left;
+}
+#navigationcolumn .textinnavigation p {
+	margin: 0px;
+	padding: 0px;
+}
+#navigationcolumn .textinnavigation a {
+	color: #037551;
+	font-weight: bold;
+	text-decoration: none;
+}
+#navigationcolumn .textinnavigation a:hover {
+	text-decoration: underline;
+}
+.here{
+	background: #D7E0DE url(../images/emu_today_images/hereedge.png) no-repeat left top;
+}
+/*_Regular content_*/
+#emutoday #lowercontent #maincontent {
+	padding: 18px 24px 24px 27px;
+	float: left;
+	width: 694px;
+	overflow: hidden;
+	margin: 0px;
+}
+#maincontent #titlebar {
+	margin: 0px 0px 3px;
+	padding: 0px;
+	float: left;
+	display: block;
+	clear: both;
+	width: 692px;
+	vertical-align: baseline;
+}
+#titlebar h3 {
+	margin: 0px;
+	padding: 0px;
+	display: block;
+	float: left;
+	font-size: 15px;
+	vertical-align: baseline;
+}
+#titlebar #todaysdate {
+	float: left;
+	font-size: 12px;
+	font-weight: normal;
+	color: #037551;
+	margin: 2px 0px 0px 6px;
+	padding: 0px;
+}
+#titlebar #viewall {
+	float: right;
+	color: #037551;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 12px;
+	margin: 2px 0px 0px;
+	padding: 0px;
+}
+#titlebar #viewall a{
+	color: #037551;
+	text-decoration: none;
+}
+#titlebar #viewall a:hover{
+	text-decoration: underline;
+}
+/*_Reveal topic_*/
+#maincontent #revealtopictext {
+	float: left;
+	clear: both;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+	width: 692px;
+}
+#revealtopictext p {
+	margin: 0px;
+	padding: 4px 0px 5px;
+	font-size: 12px;
+	line-height: 17px;
+}
+#revealtopictext a {
+	font-weight: bold;
+	color: #17805F;
+	text-decoration: none;
+}
+#revealtopictext a:hover {
+	text-decoration: underline;
+}
+/*_Green box_*/
+#emutoday #lowercontent #maincontent #greenbox {
+	padding: 16px;
+	float: left;
+	width: 660px;
+	border: 1px solid #dedede;
+	background: #d8e6ce;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#greenbox h4 {
+	margin: 0px;
+	padding: 0px 0px 5px;
+}
+#greenbox p {
+	margin: 0px;
+	padding: 3px 0px 4px;
+	font-size: 12px;
+	line-height: 16px;
+}
+#greenbox a {
+	color: #037551;
+	font-weight: bold;
+	text-decoration: none;
+}
+#greenbox a:hover {
+	text-decoration: underline;
+}
+/*_Return box_*/
+.returnbox {
+	margin: 0px;
+	padding: 2px 0px;
+	float: left;
+	width: 200px;
+	clear: both;
+}
+.returnbox a {
+	font-weight: bold;
+}
+.returnbox a:hover{
+	text-decoration: underline;	
+}
+

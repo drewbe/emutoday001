@@ -24,9 +24,8 @@ class StoryImage_UpdateRequest extends Request
     public function rules()
     {
         return [
-      'is_active' => 'boolean',
-      'is_featured' => 'boolean',
-      'image' => 'mimes:jpeg,jpg,bmp,png | max:1000'
+          'image' => 'required | mimes:jpeg,jpg,bmp,png | max:1000',
+          'image_type' => 'required'
   ];
     }
 }

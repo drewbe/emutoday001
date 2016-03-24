@@ -10132,7 +10132,7 @@ if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/home/vagrant/emutoday/resources/assets/js/components/Drew.vue"
+  var id = "/Users/ext_dbeaman/SITES/Code/emu/emutoday/resources/assets/js/components/Drew.vue"
   module.hot.dispose(function () {
     require("vueify-insert-css").cache["\n\n"] = false
     document.head.removeChild(__vueify_style__)

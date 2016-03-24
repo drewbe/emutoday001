@@ -17,8 +17,8 @@ Route::group(['middleware' => ['web']], function() {
     ]);
     //watch out for match anything ROUTES
 
-    Route::get('backend/users/{users}/confirm', ['as' => 'backend.users.confirm', 'uses' => 'backend\UsersController@confirm']);
-    Route::resource('backend/users', 'Backend\UsersController', ['except' => ['show'] ]);
+    Route::get('admin/users/{users}/confirm', ['as' => 'admin.users.confirm', 'uses' => 'Admin\UsersController@confirm']);
+    Route::resource('admin/users', 'Admin\UsersController', ['except' => ['show'] ]);
 
     Route::get('backend/pages/{pages}/confirm', ['as' => 'backend.pages.confirm', 'uses' => 'backend\PagesController@confirm']);
     Route::resource('backend/pages', 'Backend\PagesController', ['except' => ['show'] ]);
@@ -26,17 +26,19 @@ Route::group(['middleware' => ['web']], function() {
     Route::get('backend/blog/{blog}/confirm', ['as' => 'backend.blog.confirm', 'uses' => 'Backend\BlogController@confirm']);
     Route::resource('backend/blog', 'Backend\BlogController');
 
-    Route::get('backend/story/{story}/confirm', ['as' => 'backend.story.confirm', 'uses' => 'Backend\StoryController@confirm']);
-    Route::resource('backend/story', 'Backend\StoryController');
+    Route::get('admin/story/{story}/confirm', ['as' => 'admin.story.confirm', 'uses' => 'Admin\StoryController@confirm']);
+    Route::resource('admin/story', 'Admin\StoryController');
 
 
-    Route::get('backend/storyimages/{storyimages}/confirm', ['as' => 'backend.storyimages.confirm', 'uses' => 'backend\StoryImageController@confirm']);
-    Route::resource('backend/storyimages', 'Backend\StoryImageController');
+    Route::get('admin/storyimages/{storyimages}/confirm', ['as' => 'admin.storyimages.confirm', 'uses' => 'Admin\StoryImageController@confirm']);
+    Route::resource('admin/storyimages', 'Admin\StoryImageController');
 
 
 
-    Route::get('backend/dashboard', ['as' => 'backend.dashboard', 'uses' => 'Backend\DashboardController@index']);
+    Route::get('admin/dashboard', ['as' => 'admin.dashboard', 'uses' => 'Admin\DashboardController@index']);
 
-
+    Route::get('main', function ()    {
+    return view('layouts.main');
+    });
 
 });

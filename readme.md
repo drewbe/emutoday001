@@ -1,4 +1,4 @@
-# Base MiniCMS built from starter tut 
+# MiniCMS in progress development for EMUToday, news and info web application Eastern Michigan University
 
 ## Laravel PHP Framework
 
